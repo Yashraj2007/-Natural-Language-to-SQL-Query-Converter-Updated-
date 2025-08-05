@@ -1,0 +1,16 @@
+{
+  "name": "openai-sql-generator",
+  "version": "1.0.0",
+  "description": "Full stack app: Converts natural language to SQL using OpenAI + supports live query execution for MySQL/PostgreSQL.",
+  "author": "Yashraj Chavan",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix client\" \"npm start --prefix server\"",
+    "install-all": "npm install --prefix client && npm install --prefix server",
+    "start": "npm start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "nodemon": "^3.1.10"
+  }
+}
