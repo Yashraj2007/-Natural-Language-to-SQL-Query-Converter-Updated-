@@ -13,23 +13,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 
-const allowedOrigins = [
-  "http://localhost:5173",          // for local development
-  "https://nl-to-sql-ruby.vercel.app" // new frontend URL
-];
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("CORS policy: Not allowed"));
-    }
-  },
-  methods: ["GET", "POST"],
-  credentials: true
-}));
 
 // Validate OpenAI key
 const apiKey = process.env.OPENAI_API_KEY;
@@ -143,6 +129,3 @@ app.post('/execute-sql', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
-
-
-
