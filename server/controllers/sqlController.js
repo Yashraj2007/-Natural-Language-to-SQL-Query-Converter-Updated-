@@ -8,13 +8,7 @@ export const generateSQL = async (req, res) => {
     const sql = await generate(prompt, method);
 
     // Define your MySQL connection details (make sure these match your Workbench setup)
-    const connection = {
-        host: "127.0.0.1",
-        user: "root",
-        database: "test",
-        password: "Anuja@98" ,
-        port: 3306,
-    };
+  
 
     // Actually execute the SQL on the MySQL database
     const result = await executeSQL({
@@ -29,3 +23,4 @@ export const generateSQL = async (req, res) => {
     res.status(500).json({ error: "Failed to generate or execute SQL" });
   }
 };
+
