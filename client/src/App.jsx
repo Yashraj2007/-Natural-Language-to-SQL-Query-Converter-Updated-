@@ -180,7 +180,7 @@ function App() {
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          Authorization: "Bearer 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",
+          Authorization: "Bearer your_api_key",
           "HTTP-Referer": "http://localhost:5174/",
           "X-Title": "Natural Language To Sql Generator",
           "Content-Type": "application/json",
@@ -226,7 +226,7 @@ function App() {
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          Authorization: "Bearer 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",
+          Authorization: "Bearer your_api_key",
           "HTTP-Referer": "http://localhost:5174/",
           "X-Title": "Natural Language To Sql Generator",
           "Content-Type": "application/json",
@@ -274,7 +274,7 @@ ${cleanSQL}`,
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          Authorization: "Bearer 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",
+          Authorization: "Bearer your_api_key",
           "HTTP-Referer": "http://localhost:5174/",
           "X-Title": "Natural Language To Sql Generator",
           "Content-Type": "application/json",
@@ -1110,3 +1110,4 @@ const styles = {
   },
 }
 export default App
+
