@@ -16,7 +16,6 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-
 // Validate OpenAI key
 const apiKey = process.env.OPENAI_API_KEY;
 if (!apiKey) {
@@ -36,7 +35,6 @@ app.get("/", (req, res) => {
   res.send("✅ SQL Generator API is running.");
 });
 
-// SQL Generation route
 app.post('/generate-sql', async (req, res) => {
   const { prompt } = req.body;
 
@@ -46,8 +44,12 @@ app.post('/generate-sql', async (req, res) => {
 
   try {
     const response = await openai.createChatCompletion({
-      model: process.env.OPENAI_MODEL || 'gpt-3.5-turbo',
-      messages: [
+  method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Content-Type': 'application/json',
+        
+      },      messages: [
         {
           role: "system",
           content: "You are a professional SQL assistant. Only respond with valid SQL first, then a brief plain English explanation. Do not use markdown formatting or ```."
